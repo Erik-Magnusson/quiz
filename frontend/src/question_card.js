@@ -16,10 +16,10 @@ const tempData = {
 };
 
 function getAnswers() {
+  console.log(tempData.answers)
   tempData.answers.forEach((answer) => {
     const answerDiv = Answer(answer.answer_text)
-    console.log(answerDiv)
-    answers.push(<div>{answerDiv.props.children}</div>);
+    answers.push(answerDiv);
   });
 }
 
@@ -27,7 +27,7 @@ function QuestionCard() {
   getAnswers();
   return(
   <div>
-    This will be the question
+    <p>This will be the question</p>
     <div>{answers}</div>
   </div>
   )};

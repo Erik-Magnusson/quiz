@@ -1,7 +1,7 @@
 
 
 export default function Answer(answerOption) {
-    const answerDiv = <div>{ answerOption }</div>;
+    const answerDiv = <div><p>{ answerOption }</p></div>;
     return answerDiv;
 }
 
