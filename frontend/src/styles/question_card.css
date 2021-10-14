@@ -1,0 +1,22 @@
+.question-card {
+    border-color: black;
+  margin: 80px;
+  background-color: RGBA(248,244,228,68%);
+  border-radius: 16px;
+  border-width: 4px;
+
+}
+
+.question-card div {
+  text-align: center;
+  border-color: black;
+  border: 8px;
+    font-size: larger;
+}
+
+.answers-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

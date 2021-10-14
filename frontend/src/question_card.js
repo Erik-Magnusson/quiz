@@ -1,35 +1,15 @@
 import Answer from "./answer";
-import questionAndAnswers from "./requester";
+import "./styles/question_card.css";
 
-//const qAndA = questionAndAnswers();
-const answers = [];
+//console.log(qAndA);
 
-const tempData = {
-  id: 2,
-  question_text: "When was the enigma machine cracked?",
-  answers: [
-    { answer_text: 1941 },
-    { answer_text: 1942 },
-    { answer_text: 1939 },
-    { answer_text: 1943 },
-  ],
-};
-
-function getAnswers() {
-  console.log(tempData.answers)
-  tempData.answers.forEach((answer) => {
-    const answerDiv = Answer(answer.answer_text)
-    answers.push(answerDiv);
-  });
+export default function QuestionCard(question) {
+  return (
+    <div class="question-card" id="questionCard">
+      <div>{question.question.question_text}</div>
+      <div class="answers-container">{question.answers.map((answer, i) => {
+        return Answer(answer, i,question.answerNumber[i], question.checkAnswer, question.correctAnswer)
+      })}</div>
+    </div>
+  );
 }
-
-function QuestionCard() {
-  getAnswers();
-  return(
-  <div>
-    <p>This will be the question</p>
-    <div>{answers}</div>
-  </div>
-  )};
-
-export default QuestionCard;
