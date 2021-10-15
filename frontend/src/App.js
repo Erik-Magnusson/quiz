@@ -1,6 +1,7 @@
 import QuestionCard from "./question_card";
 import { questionAndAnswers, validateAnswer } from "./requester";
 import React, { useState, useEffect, ReactDOM , findDOMNode} from "react";
+import axios from "axios";
 
 import "./styles/App.css";
 
@@ -8,7 +9,7 @@ import "./styles/App.css";
 const answers = [];
 const answerNumber = ["A", "B", "C", "D"];
 
-const tempData = [
+/*  [
   {
     id: 2,
     question_text: "When was the enigma machine cracked?",
@@ -30,8 +31,22 @@ const tempData = [
     ],
   },
 ];
+*/
+
 
 function App() {
+
+  const [tempData, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const asyncResponse = await questionAndAnswers;
+      const data = asyncResponse.data;
+      setData(data);
+    }
+    if(tempData !== []) fetchData();
+  },[]); 
+
   let [currentQuestion, setCurrentQuestion] = useState(0);
   let [correctAnswers, setCorrectAnswers] = useState(0);
   let [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
